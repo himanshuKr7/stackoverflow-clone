@@ -7,7 +7,7 @@ import { LiaCommentSolid } from "react-icons/lia";
 import { TiDocumentText } from "react-icons/ti";
 const Navbar = () => {
   return (
-		<nav className="bg-white shadow-sm border-b sticky top-0 z-10">
+		<nav className="bg-white  sticky top-0 z-10">
 			<div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-around items-center h-16">
 					<div className="flex-shrink-0 flex items-center ">
@@ -21,8 +21,8 @@ const Navbar = () => {
 						</span>
 					</div>
 					<div className="flex-1 mx-16">
-						<div className="relative flex gap-5 items-center">
-							<div className="relative w-7/12">
+						<div className="relative flex gap-7 items-center">
+							<div className="relative w-8/12">
 								<input
 									type="text"
 									placeholder="Search Your Answers Here..."
