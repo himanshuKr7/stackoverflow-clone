@@ -2,11 +2,11 @@ import { RiHomeLine } from "react-icons/ri";
 import { MdOutlinePublic, MdOutlineStars } from "react-icons/md";
 import { CgToolbox } from "react-icons/cg";
 import { HiOutlineUsers } from "react-icons/hi";
-import { FaTags } from "react-icons/fa";
+
 
 const SideBar = () => {
 	return (
-		<div className="h-screen  border-gray-200">
+		<div className="hidden lg:block h-screen  border-gray-200">
 			<div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 my-6">
 				<nav>
 					<div className="mb-4 ">
