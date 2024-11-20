@@ -70,7 +70,7 @@ const MetaInfo = () => {
 						</ul>
 					</section>
 				</aside>
-				<section>
+				<section className="mb-8">
 					<h2 className="text-lg font-bold text-gray-800 mb-4 mt-7 px-10">
 						Custom filter
 					</h2>
