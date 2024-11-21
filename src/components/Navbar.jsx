@@ -14,6 +14,10 @@ const Navbar = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
+  const handleSearchChange = (e) => {
+		onSearch(e.target.value); 
+	};
+
 	return (
 		<nav className="bg-white sticky top-0 z-10">
 			<div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +45,7 @@ const Navbar = () => {
 							<input
 								type="text"
 								placeholder="Search Your Answers Here..."
+								onChange={handleSearchChange} 
 								className="block w-full px-4 py-2 pr-10 border border-gray-300 rounded-3xl shadow-sm placeholder-gray-500 sm:text-sm outline-none"
 							/>
 							<FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-orange-400" />
@@ -80,11 +85,9 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			
 			{isMenuOpen && (
 				<div className="absolute top-16 left-0 w-[50%] h-screen  bg-white shadow-lg z-40">
 					<ul className="space-y-4 p-4">
-				
 						<li>
 							<button className="flex items-center gap-4 p-2 text-gray-700 hover:bg-gray-100 rounded-md">
 								<RiHomeLine className="text-xl text-orange-600" />

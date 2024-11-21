@@ -6,18 +6,18 @@ import { HiOutlineUsers } from "react-icons/hi";
 
 const SideBar = () => {
 	return (
-		<div className="hidden lg:block h-screen  border-gray-200">
+		<div className="hidden md:block h-screen  border-gray-200">
 			<div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 my-6">
 				<nav>
-					<div className="mb-4 ">
-						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 hover:bg-orange-300">
+					<div className="mb-4 w-full  bg-orange-100 border-r-8 border-orange-500 rounded-r-md ">
+						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8">
 							<RiHomeLine className="text-xl text-orange-600" />
 							<span>Home</span>
 						</button>
 					</div>
 
 					<div className="mb-4">
-						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 hover:bg-orange-300">
+						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 ">
 							<MdOutlinePublic className="text-xl text-orange-500" />
 							<span>PUBLIC</span>
 						</button>
@@ -35,7 +35,7 @@ const SideBar = () => {
 					</div>
 
 					<div className="mb-4">
-						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 hover:bg-orange-300">
+						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 ">
 							<MdOutlineStars className="text-xl text-orange-600" />
 							<span>COLLECTIVES</span>
 						</button>
@@ -47,7 +47,7 @@ const SideBar = () => {
 					</div>
 
 					<div className="mb-4">
-						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 hover:bg-orange-300">
+						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 ">
 							<CgToolbox className="text-xl text-orange-600" />
 							<span>FIND JOBS</span>
 						</button>
@@ -62,7 +62,7 @@ const SideBar = () => {
 					</div>
 
 					<div className="mb-4">
-						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 hover:bg-orange-300">
+						<button className="flex items-center gap-4 text-gray-700 hover:text-black font-medium py-2 px-8 ">
 							<HiOutlineUsers className="text-xl text-orange-600" />
 							<span>TEAMS</span>
 						</button>
