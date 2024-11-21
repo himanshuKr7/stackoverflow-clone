@@ -12,7 +12,7 @@ const useFetchQuestions = (filter) => {
 
 			try {
 				const response = await fetch(
-					`https://api.stackexchange.com/2.3/questions?order=desc&sort=${filter}&site=stackoverflow`
+					`https://api.stackexchange.com/2.3/questions?order=desc&sort=${filter}&site=stackoverflow&key=rl_46vJQTH44Hw5uYEuShqKuDy9V`
 				);
 
 				if (response.status === 429) {
@@ -23,9 +23,6 @@ const useFetchQuestions = (filter) => {
 					return;
 				}
 
-				if (!response.ok) {
-					throw new Error("Failed to fetch data.");
-				}
 
 				const data = await response.json();
 

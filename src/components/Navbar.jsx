@@ -6,16 +6,18 @@ import { TiDocumentText } from "react-icons/ti";
 import { RiHomeLine } from "react-icons/ri";
 import { MdOutlinePublic, MdOutlineStars } from "react-icons/md";
 import { CgToolbox } from "react-icons/cg";
+import { useSearch } from "../context/SearchContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+	 const { searchTerm, setSearchTerm } = useSearch(); 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
   const handleSearchChange = (e) => {
-		onSearch(e.target.value); 
+		setSearchTerm(e.target.value); 
+	  console.log(searchTerm);
 	};
 
 	return (
@@ -45,6 +47,7 @@ const Navbar = () => {
 							<input
 								type="text"
 								placeholder="Search Your Answers Here..."
+								value={searchTerm}
 								onChange={handleSearchChange} 
 								className="block w-full px-4 py-2 pr-10 border border-gray-300 rounded-3xl shadow-sm placeholder-gray-500 sm:text-sm outline-none"
 							/>
