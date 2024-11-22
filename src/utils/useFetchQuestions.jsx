@@ -12,7 +12,7 @@ const useFetchQuestions = (filter) => {
 
 			try {
 				const response = await fetch(
-					`https://api.stackexchange.com/2.3/questions?order=desc&sort=${filter}&site=stackoverflow&key=${apiKey}`
+					`https://api.stackexchange.com/2.3/questions?order=desc&sort=${filter}&site=stackoverflow`
 				);
 
 				if (response.status === 429) {
