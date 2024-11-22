@@ -7,14 +7,14 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<div className="flex justify-between gap-0">
+			<div className="flex justify-between max-w-screen-xl mx-auto">
 				<div className="flex-none">
 					<SideBar />
 				</div>
 				<div className="flex-1">
 					<QuestionContent />
 				</div>
-				<div className="flex-none">
+				<div className="flex-none ">
 					<MetaInfo />
 				</div>
 			</div>

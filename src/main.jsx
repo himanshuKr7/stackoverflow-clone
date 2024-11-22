@@ -1,9 +1,9 @@
-import { StrictMode } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
-import { SearchProvider } from "../src/context/SearchContext.jsx"
+import { StrictMode } from "react";
+import App from "./App.jsx"; 
+import { SearchProvider } from "./context/SearchContext";
 import "./index.css";
-import App from "./App.jsx";
-import * as React from "react";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>
