@@ -10,14 +10,25 @@ import { useSearch } from "../context/SearchContext";
 
 const Navbar = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	 const { searchTerm, setSearchTerm } = useSearch(); 
+	const [isSearchOpen, setIsSearchOpen] = useState(false);
+	const [inputValue, setInputValue] = useState(""); 
+	const { setSearchTerm } = useSearch(); 
+
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
 	};
 
-  const handleSearchChange = (e) => {
-		setSearchTerm(e.target.value); 
-	  console.log(searchTerm);
+	const toggleSearch = () => {
+		setIsSearchOpen(!isSearchOpen);
+	};
+
+	const handleInputChange = (e) => {
+		setInputValue(e.target.value);
+	};
+
+	const handleSearch = () => {
+		setSearchTerm(inputValue.trim().toLowerCase());
+		setIsSearchOpen(false); 
 	};
 
 	return (
@@ -35,33 +46,38 @@ const Navbar = () => {
 							<img
 								src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Stack_Overflow_icon.svg"
 								alt="Stack Overflow Logo"
-								className="h-8 w-8"
+								className="h-10 w-10"
 							/>
 							<span className="hidden md:block text-xl font-semibold text-gray-800">
 								stack<strong>overflow</strong>
 							</span>
 						</div>
 					</div>
-					<div className="hidden md:flex flex-1 mx-16 items-center gap-5">
+					<div className="hidden sm:flex flex-1 mx-16 items-center gap-8">
 						<div className="relative w-9/12">
 							<input
 								type="text"
 								placeholder="Search Your Answers Here..."
-								value={searchTerm}
-								onChange={handleSearchChange} 
+								value={inputValue}
+								onChange={handleInputChange}
 								className="block w-full px-4 py-2 pr-10 border border-gray-300 rounded-3xl shadow-sm placeholder-gray-500 sm:text-sm outline-none"
 							/>
-							<FaSearch className="absolute right-4 top-1/2 transform -translate-y-1/2 text-orange-400" />
+							<button
+								onClick={handleSearch}
+								className="absolute right-4 top-1/2 transform -translate-y-1/2 text-orange-400 focus:outline-none"
+								aria-label="Search">
+								<FaSearch size={20} />
+							</button>
 						</div>
-						<p className="ml-4 text-gray-600">Products</p>
+						<p className="text-gray-500">products</p>
 					</div>
-
-					<button
-						className="md:hidden p-2 rounded-full text-gray-600 hover:bg-gray-100"
-						aria-label="Search">
-						<FaSearch size={24} className="text-orange-400" />
-					</button>
 					<div className="flex items-center space-x-4">
+						<button
+							className="p-2 rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600 sm:hidden"
+							onClick={toggleSearch}
+							aria-label="Search">
+							<FaSearch size={20} />
+						</button>
 						<button
 							className="p-2 rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600 text-lg md:text-xl"
 							aria-label="Notifications">
@@ -74,7 +90,7 @@ const Navbar = () => {
 						</button>
 						<button
 							className="p-2 rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600 text-xl md:text-2xl"
-							aria-label="Comments">
+							aria-label="Documents">
 							<TiDocumentText />
 						</button>
 						<div className="flex items-center">
@@ -87,7 +103,6 @@ const Navbar = () => {
 					</div>
 				</div>
 			</div>
-
 			{isMenuOpen && (
 				<div className="absolute top-16 left-0 w-[50%] h-screen  bg-white shadow-lg z-40">
 					<ul className="space-y-4 p-4">

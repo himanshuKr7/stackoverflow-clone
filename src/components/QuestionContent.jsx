@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFetchQuestions from "../utils/useFetchQuestions";
 import QuestionCard from "./QuestionCard";
+import { useSearch } from "../context/SearchContext";
 
-const QuestionContent = ({filteredQuestions}) => {
+const QuestionContent = () => {
 	const [selectedFilter, setSelectedFilter] = useState("activity");
 	const { questions, loading, error } = useFetchQuestions(selectedFilter);
+	const { searchTerm, filteredQuestions, setFilteredQuestions } = useSearch();
+	useEffect(() => {
+		if (searchTerm.trim() && questions.length) {
+			const filtered = questions.filter((question) =>
+				question.title.toLowerCase().includes(searchTerm)
+			);
+			setFilteredQuestions(filtered);
+		} else {
+			setFilteredQuestions(questions);
+		}
+	}, [searchTerm, questions, setFilteredQuestions]);
 
 	return (
 		<section className="flex-1 p-6">
@@ -32,7 +44,7 @@ const QuestionContent = ({filteredQuestions}) => {
 			</div>
 			<div className="space-y-6">
 				{filteredQuestions && filteredQuestions.length > 0 ? (
-					filteredQuestions.map((question, index) => (
+					filteredQuestions.map((question) => (
 						<QuestionCard
 							key={question.question_id}
 							question={question.title}
@@ -51,20 +63,7 @@ const QuestionContent = ({filteredQuestions}) => {
 				) : error ? (
 					<div>{error}</div>
 				) : (
-					questions.map((question) => (
-						<QuestionCard
-							key={question.question_id}
-							question={question.title}
-							tags={question.tags}
-							votes={question.score}
-							answers={question.answer_count}
-							views={question.view_count}
-							time={new Date(
-								question.creation_date * 1000
-							).toLocaleDateString()}
-							user={question.owner.display_name}
-						/>
-					))
+					<div>No questions found.</div>
 				)}
 			</div>
 		</section>

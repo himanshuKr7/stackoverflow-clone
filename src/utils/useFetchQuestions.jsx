@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+ const apiKey = import.meta.env.VITE_API_KEY;
 const useFetchQuestions = (filter) => {
 	const [questions, setQuestions] = useState([]);
 	const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const useFetchQuestions = (filter) => {
 
 			try {
 				const response = await fetch(
-					`https://api.stackexchange.com/2.3/questions?order=desc&sort=${filter}&site=stackoverflow&key=rl_46vJQTH44Hw5uYEuShqKuDy9V`
+					`https://api.stackexchange.com/2.3/questions?order=desc&sort=${filter}&site=stackoverflow&key=${apiKey}`
 				);
 
 				if (response.status === 429) {
